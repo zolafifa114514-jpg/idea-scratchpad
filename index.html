@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Idea Scratchpad — throw it up on the wall</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="paper-texture" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Idea Scratchpad home">
+      <span class="brand-mark">✳</span>
+      <span>idea scratchpad</span>
+    </a>
+    <div class="top-actions">
+      <span class="save-state"><span class="save-dot"></span><span id="saveState">saved in this browser</span></span>
+      <button class="icon-button" id="clearAll" title="Clear all ideas" aria-label="Clear all ideas">⌫</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A place for the almost-good ideas</p>
+        <h1>Throw it<br><em>up on the wall.</em></h1>
+        <p class="intro">Scribbles, side quests, and “wait… what if?” moments. Get them out of your head before they disappear.</p>
+      </div>
+      <div class="doodle" aria-hidden="true">
+        <span class="doodle-star">✦</span>
+        <span class="doodle-arrow">↝</span>
+        <span class="doodle-note">nothing<br>too weird</span>
+      </div>
+    </section>
+
+    <section class="capture-card" aria-labelledby="captureHeading">
+      <div class="capture-heading">
+        <span class="number">01</span>
+        <div><h2 id="captureHeading">Drop an idea</h2><p>Don’t overthink it. Rough is good.</p></div>
+      </div>
+      <form id="ideaForm">
+        <label class="sr-only" for="ideaInput">Your idea</label>
+        <textarea id="ideaInput" maxlength="280" placeholder="What’s bouncing around in your brain?" rows="2" required></textarea>
+        <div class="capture-controls">
+          <div class="control-group">
+            <label for="categoryInput">Category</label>
+            <select id="categoryInput">
+              <option value="Unsorted">Unsorted</option>
+              <option value="Talent show">Talent show</option>
+              <option value="Big ideas">Big ideas</option>
+              <option value="To explore">To explore</option>
+            </select>
+          </div>
+          <div class="control-group tag-control">
+            <label for="tagInput">Tag it</label>
+            <input id="tagInput" type="text" maxlength="22" placeholder="e.g. wild idea" />
+          </div>
+          <div class="color-picker" role="group" aria-label="Choose a note color">
+            <button type="button" class="color-choice yellow active" data-color="yellow" aria-label="Yellow"></button>
+            <button type="button" class="color-choice pink" data-color="pink" aria-label="Pink"></button>
+            <button type="button" class="color-choice blue" data-color="blue" aria-label="Blue"></button>
+            <button type="button" class="color-choice green" data-color="green" aria-label="Green"></button>
+          </div>
+          <button class="primary-button" type="submit">Pin it <span>↗</span></button>
+        </div>
+        <div class="quick-hint"><span>⌘</span> + <span>↵</span> to pin quickly</div>
+      </form>
+    </section>
+
+    <section class="idea-section">
+      <div class="section-topline">
+        <div class="section-title"><span class="number">02</span><div><h2>Your wall</h2><p id="ideaCount">0 ideas, no bad ones</p></div></div>
+        <div class="view-tools">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Find an idea or tag..." /></label>
+          <button class="filter-button" id="filterButton" aria-expanded="false">All categories <span>⌄</span></button>
+          <div class="filter-menu" id="filterMenu" hidden></div>
+          <button class="scatter-button" id="scatterButton" title="Mix the notes around">✦ scatter</button>
+        </div>
+      </div>
+      <div class="active-filter" id="activeFilter" hidden></div>
+      <div class="wall-hint"><span>✋</span> grab a note and make a connection</div>
+      <div class="idea-board" id="ideaGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-scribble">✎</div>
+        <h3 id="emptyTitle">The wall is waiting.</h3>
+        <p id="emptyCopy">Your next weird, wonderful idea goes right here.</p>
+        <button class="text-button" id="emptyAction">Add your first idea <span>↗</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>made for messy minds</span><span class="footer-line"></span><span>keep the good weird stuff</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
